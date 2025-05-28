@@ -13,10 +13,10 @@ def add_user():
     connection.commit()
     connection.close()
 
-    print(f"Користувач {full_name} успішно доданий!")
+    print(f"Користувач {full_name} доданий")
 
 def change_password():
-    login = input("Введіть логін користувача: ")
+    login = input("Введіть логін: ")
 
     while True:
         current_password = input("Введіть поточний пароль: ")
@@ -35,10 +35,10 @@ def change_password():
             new_password = input("Введіть новий пароль: ")
             cursor.execute("UPDATE users SET password = ? WHERE login = ?", (new_password, login))
             connection.commit()
-            print("Пароль успішно змінено!")
+            print("Пароль змінено")
             return
         else:
-            print("Помилка: Невірний логін або пароль.")
+            print("Невірний логін або пароль")
 
 
     connection.close()
